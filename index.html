@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Career Guidance | Govt Jobs India</title>
+
+<title>Careero | Career Guidance India</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -57,7 +58,7 @@ h2{
     transition:.35s ease;
 }
 .card:hover{
-    transform:translateY(-10px) scale(1.02);
+    transform:translateY(-8px) scale(1.02);
     background:linear-gradient(135deg,#2563eb,#1e40af);
     color:white;
 }
@@ -97,7 +98,7 @@ h2{
     color:#ef4444;
 }
 
-/* POPUP BUTTONS */
+/* BUTTONS */
 .popup-btn{
     width:100%;
     padding:14px;
@@ -141,13 +142,45 @@ footer{
     margin-top:50px;
     font-size:14px;
 }
+
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
+
+/* MOBILE */
+@media (max-width:480px){
+    header h1{font-size:1.6rem;}
+    h2{text-align:center;font-size:1.2rem;}
+    .container{padding:25px 15px;}
+    .cards{grid-template-columns:1fr;}
+    .card{padding:20px;font-size:14px;}
+    .modal-content{padding:20px;border-radius:16px;}
+    .popup-btn{font-size:14px;padding:12px;}
+    footer{font-size:12px;}
+}
+
+/* TABLET */
+@media (min-width:481px) and (max-width:768px){
+    header h1{font-size:2rem;}
+    .cards{grid-template-columns:repeat(2,1fr);}
+}
+
+/* LAPTOP */
+@media (min-width:769px) and (max-width:1024px){
+    .cards{grid-template-columns:repeat(3,1fr);}
+}
+
+/* DESKTOP */
+@media (min-width:1025px){
+    .cards{grid-template-columns:repeat(4,1fr);}
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Career Guidance Portal</h1>
+    <h1>Careero – Career Guidance Portal</h1>
 </header>
 
 <div class="container">
@@ -176,7 +209,7 @@ footer{
 </div>
 
 <footer>
-© 2025 Career Guidance India • Built for Students 🇮🇳
+© 2025 Careero • Built for Students 🇮🇳
 </footer>
 
 <script>
@@ -202,29 +235,29 @@ popup.style.display="flex";
 
 function showDetails(post,cat){
 const d={
-JE:`<b>Salary:</b> ₹35k–55k<br><b>Pros:</b><ul><li>Technical role</li><li>Stable job</li></ul><b>Cons:</b><ul><li>Field work</li></ul><b>Stress:</b> Medium`,
-AE:`<b>Salary:</b> ₹55k–80k<br><b>Pros:</b><ul><li>Higher authority</li></ul><b>Cons:</b><ul><li>High responsibility</li></ul><b>Stress:</b> Medium–High`,
-IAS:`<b>Salary:</b> ₹56k+ perks<br><b>Pros:</b><ul><li>Power & respect</li></ul><b>Cons:</b><ul><li>Political pressure</li></ul><b>Stress:</b> Very High`,
-IPS:`<b>Salary:</b> ₹56k+ perks<br><b>Pros:</b><ul><li>Authority</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> Very High`,
-IFS:`<b>Salary:</b> ₹56k+ allowance<br><b>Pros:</b><ul><li>Foreign postings</li></ul><b>Cons:</b><ul><li>Less home time</li></ul><b>Stress:</b> Medium`,
-CGL:`<b>Salary:</b> ₹40k–70k<br><b>Pros:</b><ul><li>Desk job</li></ul><b>Cons:</b><ul><li>High competition</li></ul><b>Stress:</b> Medium`,
-CHSL:`<b>Salary:</b> ₹25k–40k<br><b>Pros:</b><ul><li>12th based</li></ul><b>Cons:</b><ul><li>Slow growth</li></ul><b>Stress:</b> Low–Medium`,
-MTS:`<b>Salary:</b> ₹18k–25k<br><b>Pros:</b><ul><li>Low pressure</li></ul><b>Cons:</b><ul><li>Low pay</li></ul><b>Stress:</b> Low`,
-PO:`<b>Salary:</b> ₹50k–80k<br><b>Pros:</b><ul><li>Fast promotion</li></ul><b>Cons:</b><ul><li>Targets</li></ul><b>Stress:</b> High`,
-Clerk:`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>Fixed hours</li></ul><b>Cons:</b><ul><li>Limited growth</li></ul><b>Stress:</b> Medium`,
-NTPC:`<b>Salary:</b> ₹35k–55k<br><b>Pros:</b><ul><li>Large vacancies</li></ul><b>Cons:</b><ul><li>Transfers</li></ul><b>Stress:</b> Medium`,
-"Group D":`<b>Salary:</b> ₹22k–30k<br><b>Pros:</b><ul><li>Job security</li></ul><b>Cons:</b><ul><li>Physical work</li></ul><b>Stress:</b> Low`,
-NDA:`<b>Salary:</b> ₹56k+<br><b>Pros:</b><ul><li>Prestige</li></ul><b>Cons:</b><ul><li>Strict life</li></ul><b>Stress:</b> High`,
-CDS:`<b>Salary:</b> ₹56k+<br><b>Pros:</b><ul><li>Officer rank</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> High`,
-Agniveer:`<b>Salary:</b> ₹30k–40k<br><b>Pros:</b><ul><li>Early entry</li></ul><b>Cons:</b><ul><li>No pension</li></ul><b>Stress:</b> High`,
-TET:`<b>Salary:</b> ₹25k–40k<br><b>Pros:</b><ul><li>Work-life balance</li></ul><b>Cons:</b><ul><li>Slow promotion</li></ul><b>Stress:</b> Low`,
-TGT:`<b>Salary:</b> ₹45k–60k<br><b>Pros:</b><ul><li>Respect</li></ul><b>Cons:</b><ul><li>Transfers</li></ul><b>Stress:</b> Low`,
-PGT:`<b>Salary:</b> ₹55k–75k<br><b>Pros:</b><ul><li>Senior role</li></ul><b>Cons:</b><ul><li>Workload</li></ul><b>Stress:</b> Medium`,
-Constable:`<b>Salary:</b> ₹25k–35k<br><b>Pros:</b><ul><li>Early entry</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> High`,
-SI:`<b>Salary:</b> ₹45k–60k<br><b>Pros:</b><ul><li>Authority</li></ul><b>Cons:</b><ul><li>Pressure</li></ul><b>Stress:</b> High`,
-ANM:`<b>Salary:</b> ₹18k–30k<br><b>Pros:</b><ul><li>Healthcare role</li></ul><b>Cons:</b><ul><li>Field work</li></ul><b>Stress:</b> Medium`,
-GNM:`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>High demand</li></ul><b>Cons:</b><ul><li>Long shifts</li></ul><b>Stress:</b> High`,
-Doctor:`<b>Salary:</b> ₹60k–1.5L+<br><b>Pros:</b><ul><li>High respect</li></ul><b>Cons:</b><ul><li>Long study</li></ul><b>Stress:</b> Very High`
+JE:`<b>Salary:</b> ₹35k–55k<br><b>Stress:</b> Medium`,
+AE:`<b>Salary:</b> ₹55k–80k<br><b>Stress:</b> Medium–High`,
+IAS:`<b>Salary:</b> ₹56k+ perks<br><b>Stress:</b> Very High`,
+IPS:`<b>Salary:</b> ₹56k+ perks<br><b>Stress:</b> Very High`,
+IFS:`<b>Salary:</b> ₹56k+ allowance<br><b>Stress:</b> Medium`,
+CGL:`<b>Salary:</b> ₹40k–70k<br><b>Stress:</b> Medium`,
+CHSL:`<b>Salary:</b> ₹25k–40k<br><b>Stress:</b> Low–Medium`,
+MTS:`<b>Salary:</b> ₹18k–25k<br><b>Stress:</b> Low`,
+PO:`<b>Salary:</b> ₹50k–80k<br><b>Stress:</b> High`,
+Clerk:`<b>Salary:</b> ₹30k–45k<br><b>Stress:</b> Medium`,
+NTPC:`<b>Salary:</b> ₹35k–55k<br><b>Stress:</b> Medium`,
+"Group D":`<b>Salary:</b> ₹22k–30k<br><b>Stress:</b> Low`,
+NDA:`<b>Salary:</b> ₹56k+<br><b>Stress:</b> High`,
+CDS:`<b>Salary:</b> ₹56k+<br><b>Stress:</b> High`,
+Agniveer:`<b>Salary:</b> ₹30k–40k<br><b>Stress:</b> High`,
+TET:`<b>Salary:</b> ₹25k–40k<br><b>Stress:</b> Low`,
+TGT:`<b>Salary:</b> ₹45k–60k<br><b>Stress:</b> Low`,
+PGT:`<b>Salary:</b> ₹55k–75k<br><b>Stress:</b> Medium`,
+Constable:`<b>Salary:</b> ₹25k–35k<br><b>Stress:</b> High`,
+SI:`<b>Salary:</b> ₹45k–60k<br><b>Stress:</b> High`,
+ANM:`<b>Salary:</b> ₹18k–30k<br><b>Stress:</b> Medium`,
+GNM:`<b>Salary:</b> ₹30k–45k<br><b>Stress:</b> High`,
+Doctor:`<b>Salary:</b> ₹60k–1.5L+<br><b>Stress:</b> Very High`
 };
 popupBody.innerHTML=`<div class="details-box">${d[post]}</div>
 <button class="popup-btn back-btn" onclick="openCategory('${cat}')">⬅ Back</button>`;
