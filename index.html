@@ -109,10 +109,6 @@ h2{
     color:white;
     font-size:15px;
     cursor:pointer;
-    transition:.25s;
-}
-.popup-btn:hover{
-    transform:scale(1.03);
 }
 .back-btn{
     background:linear-gradient(135deg,#64748b,#475569);
@@ -128,10 +124,6 @@ h2{
 .details-box b{
     color:#1e40af;
 }
-ul{
-    padding-left:18px;
-    margin:8px 0;
-}
 
 /* FOOTER */
 footer{
@@ -141,38 +133,6 @@ footer{
     padding:18px;
     margin-top:50px;
     font-size:14px;
-}
-
-/* =========================
-   RESPONSIVE DESIGN
-========================= */
-
-/* MOBILE */
-@media (max-width:480px){
-    header h1{font-size:1.6rem;}
-    h2{text-align:center;font-size:1.2rem;}
-    .container{padding:25px 15px;}
-    .cards{grid-template-columns:1fr;}
-    .card{padding:20px;font-size:14px;}
-    .modal-content{padding:20px;border-radius:16px;}
-    .popup-btn{font-size:14px;padding:12px;}
-    footer{font-size:12px;}
-}
-
-/* TABLET */
-@media (min-width:481px) and (max-width:768px){
-    header h1{font-size:2rem;}
-    .cards{grid-template-columns:repeat(2,1fr);}
-}
-
-/* LAPTOP */
-@media (min-width:769px) and (max-width:1024px){
-    .cards{grid-template-columns:repeat(3,1fr);}
-}
-
-/* DESKTOP */
-@media (min-width:1025px){
-    .cards{grid-template-columns:repeat(4,1fr);}
 }
 </style>
 </head>
@@ -213,58 +173,48 @@ footer{
 </footer>
 
 <script>
+let careerData = {};
+
+// 🔴 CHANGE USERNAME HERE
+const DATA_URL = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/career-data/main/data.json";
+
+fetch(DATA_URL)
+  .then(res => res.json())
+  .then(data => careerData = data)
+  .catch(err => console.error("JSON error:", err));
+
 function openCategory(cat){
-const data={
-engineering:{title:"Engineering Jobs",posts:["JE","AE"]},
-upsc:{title:"UPSC Services",posts:["IAS","IPS","IFS"]},
-ssc:{title:"SSC Jobs",posts:["CGL","CHSL","MTS"]},
-banking:{title:"Banking Jobs",posts:["PO","Clerk"]},
-railway:{title:"Railway Jobs",posts:["NTPC","Group D"]},
-defence:{title:"Defence Jobs",posts:["NDA","CDS","Agniveer"]},
-teaching:{title:"Teaching Jobs",posts:["TET","TGT","PGT"]},
-police:{title:"Police Jobs",posts:["Constable","SI"]},
-health:{title:"Health Jobs",posts:["ANM","GNM","Doctor"]}
-};
-popupTitle.innerText=data[cat].title;
-popupBody.innerHTML="";
-data[cat].posts.forEach(p=>{
-popupBody.innerHTML+=`<button class="popup-btn" onclick="showDetails('${p}','${cat}')">${p}</button>`;
-});
-popup.style.display="flex";
+  popupTitle.innerText = cat.toUpperCase() + " Jobs";
+  popupBody.innerHTML = "";
+
+  careerData[cat].forEach(job => {
+    popupBody.innerHTML += `
+      <button class="popup-btn" onclick="showDetails('${cat}','${job.title}')">
+        ${job.title}
+      </button>
+    `;
+  });
+
+  popup.style.display = "flex";
 }
 
-function showDetails(post,cat){
-const d={
-JE:`<b>Salary:</b> ₹35k–55k<br><b>Stress:</b> Medium`,
-AE:`<b>Salary:</b> ₹55k–80k<br><b>Stress:</b> Medium–High`,
-IAS:`<b>Salary:</b> ₹56k+ perks<br><b>Stress:</b> Very High`,
-IPS:`<b>Salary:</b> ₹56k+ perks<br><b>Stress:</b> Very High`,
-IFS:`<b>Salary:</b> ₹56k+ allowance<br><b>Stress:</b> Medium`,
-CGL:`<b>Salary:</b> ₹40k–70k<br><b>Stress:</b> Medium`,
-CHSL:`<b>Salary:</b> ₹25k–40k<br><b>Stress:</b> Low–Medium`,
-MTS:`<b>Salary:</b> ₹18k–25k<br><b>Stress:</b> Low`,
-PO:`<b>Salary:</b> ₹50k–80k<br><b>Stress:</b> High`,
-Clerk:`<b>Salary:</b> ₹30k–45k<br><b>Stress:</b> Medium`,
-NTPC:`<b>Salary:</b> ₹35k–55k<br><b>Stress:</b> Medium`,
-"Group D":`<b>Salary:</b> ₹22k–30k<br><b>Stress:</b> Low`,
-NDA:`<b>Salary:</b> ₹56k+<br><b>Stress:</b> High`,
-CDS:`<b>Salary:</b> ₹56k+<br><b>Stress:</b> High`,
-Agniveer:`<b>Salary:</b> ₹30k–40k<br><b>Stress:</b> High`,
-TET:`<b>Salary:</b> ₹25k–40k<br><b>Stress:</b> Low`,
-TGT:`<b>Salary:</b> ₹45k–60k<br><b>Stress:</b> Low`,
-PGT:`<b>Salary:</b> ₹55k–75k<br><b>Stress:</b> Medium`,
-Constable:`<b>Salary:</b> ₹25k–35k<br><b>Stress:</b> High`,
-SI:`<b>Salary:</b> ₹45k–60k<br><b>Stress:</b> High`,
-ANM:`<b>Salary:</b> ₹18k–30k<br><b>Stress:</b> Medium`,
-GNM:`<b>Salary:</b> ₹30k–45k<br><b>Stress:</b> High`,
-Doctor:`<b>Salary:</b> ₹60k–1.5L+<br><b>Stress:</b> Very High`
-};
-popupBody.innerHTML=`<div class="details-box">${d[post]}</div>
-<button class="popup-btn back-btn" onclick="openCategory('${cat}')">⬅ Back</button>`;
+function showDetails(cat, title){
+  const job = careerData[cat].find(j => j.title === title);
+
+  popupBody.innerHTML = `
+    <div class="details-box">
+      <b>Salary:</b> ${job.salary}<br>
+      <b>Stress:</b> ${job.stress}
+    </div>
+
+    <button class="popup-btn back-btn" onclick="openCategory('${cat}')">
+      ⬅ Back
+    </button>
+  `;
 }
 
 function closePopup(){
-popup.style.display="none";
+  popup.style.display = "none";
 }
 </script>
 
