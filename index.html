@@ -83,11 +83,6 @@ h2{
     position:relative;
     max-height:85vh;
     overflow:auto;
-    animation:pop .3s ease;
-}
-@keyframes pop{
-    from{transform:scale(.9);opacity:0}
-    to{transform:scale(1);opacity:1}
 }
 .close{
     position:absolute;
@@ -147,25 +142,25 @@ footer{
 <h2>Government Job Categories</h2>
 
 <div class="cards">
-<div class="card" onclick="openCategory('engineering')">Engineering</div>
-<div class="card" onclick="openCategory('upsc')">UPSC</div>
-<div class="card" onclick="openCategory('ssc')">SSC</div>
-<div class="card" onclick="openCategory('banking')">Banking</div>
-<div class="card" onclick="openCategory('railway')">Railways</div>
-<div class="card" onclick="openCategory('defence')">Defence</div>
-<div class="card" onclick="openCategory('teaching')">Teaching</div>
-<div class="card" onclick="openCategory('police')">Police</div>
-<div class="card" onclick="openCategory('health')">Health</div>
+  <div class="card" onclick="openCategory('engineering')">Engineering</div>
+  <div class="card" onclick="openCategory('upsc')">UPSC</div>
+  <div class="card" onclick="openCategory('ssc')">SSC</div>
+  <div class="card" onclick="openCategory('banking')">Banking</div>
+  <div class="card" onclick="openCategory('railway')">Railway</div>
+  <div class="card" onclick="openCategory('defence')">Defence</div>
+  <div class="card" onclick="openCategory('teaching')">Teaching</div>
+  <div class="card" onclick="openCategory('police')">Police</div>
+  <div class="card" onclick="openCategory('health')">Health</div>
 </div>
 </div>
 
 <!-- MODAL -->
 <div id="popup" class="modal" onclick="closePopup()">
-<div class="modal-content" onclick="event.stopPropagation()">
-<span class="close" onclick="closePopup()">&times;</span>
-<h3 id="popupTitle"></h3>
-<div id="popupBody"></div>
-</div>
+  <div class="modal-content" onclick="event.stopPropagation()">
+    <span class="close" onclick="closePopup()">&times;</span>
+    <h3 id="popupTitle"></h3>
+    <div id="popupBody"></div>
+  </div>
 </div>
 
 <footer>
@@ -175,13 +170,15 @@ footer{
 <script>
 let careerData = {};
 
-// 🔴 CHANGE USERNAME HERE
-const DATA_URL = "https://raw.githubusercontent.com/YOUR_GITHUB_USERNAME/career-data/main/data.json";
+// ✅ YOUR ACTUAL JSON LINK
+const DATA_URL =
+"https://raw.githubusercontent.com/alizx20s/careero/main/jobs.json";
 
+// Load JSON
 fetch(DATA_URL)
   .then(res => res.json())
   .then(data => careerData = data)
-  .catch(err => console.error("JSON error:", err));
+  .catch(err => console.error("JSON load error:", err));
 
 function openCategory(cat){
   popupTitle.innerText = cat.toUpperCase() + " Jobs";
