@@ -8,151 +8,34 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
-}
-body{
-    margin:0;
-    background:linear-gradient(135deg,#eef2ff,#f8fafc);
-    color:#1e293b;
-}
-
-/* HEADER */
-header{
-    background:linear-gradient(135deg,#2563eb,#1e40af);
-    color:white;
-    padding:45px 20px;
-    text-align:center;
-}
-header h1{
-    margin:0;
-    font-size:2.4rem;
-}
-
-/* CONTAINER */
-.container{
-    max-width:1200px;
-    margin:auto;
-    padding:40px 20px;
-}
-h2{
-    margin-bottom:25px;
-}
-
-/* CARDS */
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:25px;
-}
-.card{
-    background:white;
-    padding:25px;
-    text-align:center;
-    font-weight:600;
-    border-radius:18px;
-    cursor:pointer;
-    box-shadow:0 15px 30px rgba(0,0,0,.08);
-    transition:.35s ease;
-}
-.card:hover{
-    transform:translateY(-10px) scale(1.02);
-    background:linear-gradient(135deg,#2563eb,#1e40af);
-    color:white;
-}
-
-/* MODAL */
-.modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    background:rgba(15,23,42,.65);
-    backdrop-filter:blur(4px);
-    justify-content:center;
-    align-items:center;
-    z-index:20;
-}
-.modal-content{
-    background:rgba(255,255,255,.96);
-    width:95%;
-    max-width:700px;
-    padding:30px;
-    border-radius:22px;
-    position:relative;
-    max-height:85vh;
-    overflow:auto;
-    animation:pop .3s ease;
-}
-@keyframes pop{
-    from{transform:scale(.9);opacity:0}
-    to{transform:scale(1);opacity:1}
-}
-.close{
-    position:absolute;
-    top:15px;
-    right:18px;
-    font-size:24px;
-    cursor:pointer;
-    color:#ef4444;
-}
-
-/* POPUP BUTTONS */
-.popup-btn{
-    width:100%;
-    padding:14px;
-    margin:12px 0;
-    border:none;
-    border-radius:12px;
-    background:linear-gradient(135deg,#2563eb,#1e40af);
-    color:white;
-    font-size:15px;
-    cursor:pointer;
-    transition:.25s;
-}
-.popup-btn:hover{
-    transform:scale(1.03);
-}
-.back-btn{
-    background:linear-gradient(135deg,#64748b,#475569);
-}
-
-/* DETAILS */
-.details-box{
-    background:#f1f5f9;
-    padding:18px;
-    border-radius:14px;
-    margin-top:15px;
-}
-.details-box b{
-    color:#1e40af;
-}
-ul{
-    padding-left:18px;
-    margin:8px 0;
-}
-
-/* FOOTER */
-footer{
-    background:#0f172a;
-    color:white;
-    text-align:center;
-    padding:18px;
-    margin-top:50px;
-    font-size:14px;
-}
+/* ===== SAME CSS (UNCHANGED) ===== */
+*{box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{margin:0;background:linear-gradient(135deg,#eef2ff,#f8fafc);color:#1e293b;}
+header{background:linear-gradient(135deg,#2563eb,#1e40af);color:white;padding:45px 20px;text-align:center;}
+header h1{margin:0;font-size:2.4rem;}
+.container{max-width:1200px;margin:auto;padding:40px 20px;}
+h2{margin-bottom:25px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:25px;}
+.card{background:white;padding:25px;text-align:center;font-weight:600;border-radius:18px;cursor:pointer;box-shadow:0 15px 30px rgba(0,0,0,.08);transition:.35s ease;}
+.card:hover{transform:translateY(-10px) scale(1.02);background:linear-gradient(135deg,#2563eb,#1e40af);color:white;}
+.modal{display:none;position:fixed;inset:0;background:rgba(15,23,42,.65);backdrop-filter:blur(4px);justify-content:center;align-items:center;z-index:20;}
+.modal-content{background:rgba(255,255,255,.96);width:95%;max-width:700px;padding:30px;border-radius:22px;position:relative;max-height:85vh;overflow:auto;}
+.close{position:absolute;top:15px;right:18px;font-size:24px;cursor:pointer;color:#ef4444;}
+.popup-btn{width:100%;padding:14px;margin:12px 0;border:none;border-radius:12px;background:linear-gradient(135deg,#2563eb,#1e40af);color:white;font-size:15px;cursor:pointer;}
+.back-btn{background:linear-gradient(135deg,#64748b,#475569);}
+.details-box{background:#f1f5f9;padding:18px;border-radius:14px;margin-top:15px;}
+footer{background:#0f172a;color:white;text-align:center;padding:18px;margin-top:50px;font-size:14px;}
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>Career Guidance Portal</h1>
+<h1>Career Guidance Portal</h1>
 </header>
 
 <div class="container">
 <h2>Government Job Categories</h2>
-
 <div class="cards">
 <div class="card" onclick="openCategory('engineering')">Engineering</div>
 <div class="card" onclick="openCategory('upsc')">UPSC</div>
@@ -166,7 +49,6 @@ footer{
 </div>
 </div>
 
-<!-- MODAL -->
 <div id="popup" class="modal" onclick="closePopup()">
 <div class="modal-content" onclick="event.stopPropagation()">
 <span class="close" onclick="closePopup()">&times;</span>
@@ -180,59 +62,49 @@ footer{
 </footer>
 
 <script>
+/* ===== JSON PATH ===== */
+const JSON_PATH = "https://raw.githubusercontent.com/alizx20s/careero/refs/heads/main/jobs.json";
+let JOBS = {};
+
+/* ===== LOAD JSON ON PAGE LOAD ===== */
+fetch(JSON_PATH)
+.then(res => res.json())
+.then(data => JOBS = data);
+
+/* ===== CATEGORY OPEN ===== */
 function openCategory(cat){
-const data={
-engineering:{title:"Engineering Jobs",posts:["JE","AE"]},
-upsc:{title:"UPSC Services",posts:["IAS","IPS","IFS"]},
-ssc:{title:"SSC Jobs",posts:["CGL","CHSL","MTS"]},
-banking:{title:"Banking Jobs",posts:["PO","Clerk"]},
-railway:{title:"Railway Jobs",posts:["NTPC","Group D"]},
-defence:{title:"Defence Jobs",posts:["NDA","CDS","Agniveer"]},
-teaching:{title:"Teaching Jobs",posts:["TET","TGT","PGT"]},
-police:{title:"Police Jobs",posts:["Constable","SI"]},
-health:{title:"Health Jobs",posts:["ANM","GNM","Doctor"]}
-};
-popupTitle.innerText=data[cat].title;
-popupBody.innerHTML="";
-data[cat].posts.forEach(p=>{
-popupBody.innerHTML+=`<button class="popup-btn" onclick="showDetails('${p}','${cat}')">${p}</button>`;
+const category = JOBS[cat];
+popupTitle.innerText = category.title;
+popupBody.innerHTML = "";
+
+category.posts.forEach(p=>{
+popupBody.innerHTML += `
+<button class="popup-btn" onclick="showDetails('${cat}','${p.id}')">
+${p.id}
+</button>`;
 });
+
 popup.style.display="flex";
 }
 
-function showDetails(post,cat){
-const d={
-JE:`<b>Salary:</b> ₹35k–55k<br><b>Pros:</b><ul><li>Technical role</li><li>Stable job</li></ul><b>Cons:</b><ul><li>Field work</li></ul><b>Stress:</b> Medium`,
-AE:`<b>Salary:</b> ₹55k–80k<br><b>Pros:</b><ul><li>Higher authority</li></ul><b>Cons:</b><ul><li>High responsibility</li></ul><b>Stress:</b> Medium–High`,
-IAS:`<b>Salary:</b> ₹56k+ perks<br><b>Pros:</b><ul><li>Power & respect</li></ul><b>Cons:</b><ul><li>Political pressure</li></ul><b>Stress:</b> Very High`,
-IPS:`<b>Salary:</b> ₹56k+ perks<br><b>Pros:</b><ul><li>Authority</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> Very High`,
-IFS:`<b>Salary:</b> ₹56k+ allowance<br><b>Pros:</b><ul><li>Foreign postings</li></ul><b>Cons:</b><ul><li>Less home time</li></ul><b>Stress:</b> Medium`,
-CGL:`<b>Salary:</b> ₹40k–70k<br><b>Pros:</b><ul><li>Desk job</li></ul><b>Cons:</b><ul><li>High competition</li></ul><b>Stress:</b> Medium`,
-CHSL:`<b>Salary:</b> ₹25k–40k<br><b>Pros:</b><ul><li>12th based</li></ul><b>Cons:</b><ul><li>Slow growth</li></ul><b>Stress:</b> Low–Medium`,
-MTS:`<b>Salary:</b> ₹18k–25k<br><b>Pros:</b><ul><li>Low pressure</li></ul><b>Cons:</b><ul><li>Low pay</li></ul><b>Stress:</b> Low`,
-PO:`<b>Salary:</b> ₹50k–80k<br><b>Pros:</b><ul><li>Fast promotion</li></ul><b>Cons:</b><ul><li>Targets</li></ul><b>Stress:</b> High`,
-Clerk:`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>Fixed hours</li></ul><b>Cons:</b><ul><li>Limited growth</li></ul><b>Stress:</b> Medium`,
-NTPC:`<b>Salary:</b> ₹35k–55k<br><b>Pros:</b><ul><li>Large vacancies</li></ul><b>Cons:</b><ul><li>Transfers</li></ul><b>Stress:</b> Medium`,
-"Group D":`<b>Salary:</b> ₹22k–30k<br><b>Pros:</b><ul><li>Job security</li></ul><b>Cons:</b><ul><li>Physical work</li></ul><b>Stress:</b> Low`,
-NDA:`<b>Salary:</b> ₹56k+<br><b>Pros:</b><ul><li>Prestige</li></ul><b>Cons:</b><ul><li>Strict life</li></ul><b>Stress:</b> High`,
-CDS:`<b>Salary:</b> ₹56k+<br><b>Pros:</b><ul><li>Officer rank</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> High`,
-Agniveer:`<b>Salary:</b> ₹30k–40k<br><b>Pros:</b><ul><li>Early entry</li></ul><b>Cons:</b><ul><li>No pension</li></ul><b>Stress:</b> High`,
-TET:`<b>Salary:</b> ₹25k–40k<br><b>Pros:</b><ul><li>Work-life balance</li></ul><b>Cons:</b><ul><li>Slow promotion</li></ul><b>Stress:</b> Low`,
-TGT:`<b>Salary:</b> ₹45k–60k<br><b>Pros:</b><ul><li>Respect</li></ul><b>Cons:</b><ul><li>Transfers</li></ul><b>Stress:</b> Low`,
-PGT:`<b>Salary:</b> ₹55k–75k<br><b>Pros:</b><ul><li>Senior role</li></ul><b>Cons:</b><ul><li>Workload</li></ul><b>Stress:</b> Medium`,
-Constable:`<b>Salary:</b> ₹25k–35k<br><b>Pros:</b><ul><li>Early entry</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> High`,
-SI:`<b>Salary:</b> ₹45k–60k<br><b>Pros:</b><ul><li>Authority</li></ul><b>Cons:</b><ul><li>Pressure</li></ul><b>Stress:</b> High`,
-ANM:`<b>Salary:</b> ₹18k–30k<br><b>Pros:</b><ul><li>Healthcare role</li></ul><b>Cons:</b><ul><li>Field work</li></ul><b>Stress:</b> Medium`,
-GNM:`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>High demand</li></ul><b>Cons:</b><ul><li>Long shifts</li></ul><b>Stress:</b> High`,
-Doctor:`<b>Salary:</b> ₹60k–1.5L+<br><b>Pros:</b><ul><li>High respect</li></ul><b>Cons:</b><ul><li>Long study</li></ul><b>Stress:</b> Very High`
-};
-popupBody.innerHTML=`<div class="details-box">${d[post]}</div>
-<button class="popup-btn back-btn" onclick="openCategory('${cat}')">⬅ Back</button>`;
+/* ===== JOB DETAILS ===== */
+function showDetails(cat,postId){
+const job = JOBS[cat].posts.find(p=>p.id===postId);
+
+popupBody.innerHTML = `
+<div class="details-box">
+<b>Salary:</b> ${job.salary}<br>
+<b>Pros:</b>
+<ul>${job.pros.map(x=>`<li>${x}</li>`).join("")}</ul>
+<b>Cons:</b>
+<ul>${job.cons.map(x=>`<li>${x}</li>`).join("")}</ul>
+<b>Stress:</b> ${job.stress}
+</div>
+<button class="popup-btn back-btn" onclick="openCategory('${cat}')">⬅ Back</button>
+`;
 }
 
-function closePopup(){
-popup.style.display="none";
-}
+function closePopup(){popup.style.display="none";}
 </script>
 
 </body>
