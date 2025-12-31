@@ -163,6 +163,13 @@ footer{
 <div class="card" onclick="openCategory('teaching')">Teaching</div>
 <div class="card" onclick="openCategory('police')">Police</div>
 <div class="card" onclick="openCategory('health')">Health</div>
+<div class="card" onclick="openCategory('forest')">Forest</div>
+<div class="card" onclick="openCategory('postal')">Postal</div>
+<div class="card" onclick="openCategory('judiciary')">Judiciary</div>
+<div class="card" onclick="openCategory('account')">Accounts</div>
+<div class="card" onclick="openCategory('revenue')">Revenue</div>
+<div class="card" onclick="openCategory('development')">Development</div>
+<div class="card" onclick="openCategory('insurance')">Insurance</div>
 </div>
 </div>
 
@@ -182,15 +189,22 @@ footer{
 <script>
 function openCategory(cat){
 const data={
-engineering:{title:"Engineering Jobs",posts:["JE","AE"]},
-upsc:{title:"UPSC Services",posts:["IAS","IPS","IFS"]},
-ssc:{title:"SSC Jobs",posts:["CGL","CHSL","MTS"]},
-banking:{title:"Banking Jobs",posts:["PO","Clerk"]},
-railway:{title:"Railway Jobs",posts:["NTPC","Group D"]},
-defence:{title:"Defence Jobs",posts:["NDA","CDS","Agniveer"]},
-teaching:{title:"Teaching Jobs",posts:["TET","TGT","PGT"]},
-police:{title:"Police Jobs",posts:["Constable","SI"]},
-health:{title:"Health Jobs",posts:["ANM","GNM","Doctor"]}
+engineering:{title:"Engineering Jobs",posts:["JE","AE","SE","DE"]},
+upsc:{title:"UPSC Services",posts:["IAS","IPS","IFS","IRS","IES"]},
+ssc:{title:"SSC Jobs",posts:["CGL","CHSL","MTS","Steno"]},
+banking:{title:"Banking Jobs",posts:["PO","Clerk","SO","Manager"]},
+railway:{title:"Railway Jobs",posts:["NTPC","Group D","TC","Station Master"]},
+defence:{title:"Defence Jobs",posts:["NDA","CDS","Agniveer","AFCAT"]},
+teaching:{title:"Teaching Jobs",posts:["TET","TGT","PGT","Principal"]},
+police:{title:"Police Jobs",posts:["Constable","SI","DSP","SP"]},
+health:{title:"Health Jobs",posts:["ANM","GNM","Doctor","Pharmacist"]},
+forest:{title:"Forest Services",posts:["Forest Guard","Forester","Range Officer","IFS"]},
+postal:{title:"Postal Jobs",posts:["Postman","Postal Assistant","Sorting Assistant"]},
+judiciary:{title:"Judiciary Jobs",posts:["Judge","Public Prosecutor","Law Clerk"]},
+account:{title:"Accounts Jobs",posts:["Accountant","Auditor","Tax Assistant"]},
+revenue:{title:"Revenue Jobs",posts:["Patwari","Tehsildar","Revenue Inspector"]},
+development:{title:"Development Jobs",posts:["Block Officer","Gram Sevak","BDO"]},
+insurance:{title:"Insurance Jobs",posts:["AAO","Assistant","Surveyor"]}
 };
 popupTitle.innerText=data[cat].title;
 popupBody.innerHTML="";
@@ -204,27 +218,62 @@ function showDetails(post,cat){
 const d={
 JE:`<b>Salary:</b> ₹35k–55k<br><b>Pros:</b><ul><li>Technical role</li><li>Stable job</li></ul><b>Cons:</b><ul><li>Field work</li></ul><b>Stress:</b> Medium`,
 AE:`<b>Salary:</b> ₹55k–80k<br><b>Pros:</b><ul><li>Higher authority</li></ul><b>Cons:</b><ul><li>High responsibility</li></ul><b>Stress:</b> Medium–High`,
+SE:`<b>Salary:</b> ₹45k–70k<br><b>Pros:</b><ul><li>Specialized role</li><li>Good growth</li></ul><b>Cons:</b><ul><li>Complex projects</li></ul><b>Stress:</b> Medium`,
+DE:`<b>Salary:</b> ₹75k–1.2L<br><b>Pros:</b><ul><li>Senior position</li><li>Decision making</li></ul><b>Cons:</b><ul><li>High accountability</li></ul><b>Stress:</b> High`,
 IAS:`<b>Salary:</b> ₹56k+ perks<br><b>Pros:</b><ul><li>Power & respect</li></ul><b>Cons:</b><ul><li>Political pressure</li></ul><b>Stress:</b> Very High`,
 IPS:`<b>Salary:</b> ₹56k+ perks<br><b>Pros:</b><ul><li>Authority</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> Very High`,
 IFS:`<b>Salary:</b> ₹56k+ allowance<br><b>Pros:</b><ul><li>Foreign postings</li></ul><b>Cons:</b><ul><li>Less home time</li></ul><b>Stress:</b> Medium`,
+IRS:`<b>Salary:</b> ₹56k+ perks<br><b>Pros:</b><ul><li>Financial authority</li><li>Less transfers</li></ul><b>Cons:</b><ul><li>Tax related stress</li></ul><b>Stress:</b> High`,
+IES:`<b>Salary:</b> ₹50k–90k<br><b>Pros:</b><ul><li>Technical expertise</li><li>Good pay</li></ul><b>Cons:</b><ul><li>Specialized exams</li></ul><b>Stress:</b> Medium`,
 CGL:`<b>Salary:</b> ₹40k–70k<br><b>Pros:</b><ul><li>Desk job</li></ul><b>Cons:</b><ul><li>High competition</li></ul><b>Stress:</b> Medium`,
 CHSL:`<b>Salary:</b> ₹25k–40k<br><b>Pros:</b><ul><li>12th based</li></ul><b>Cons:</b><ul><li>Slow growth</li></ul><b>Stress:</b> Low–Medium`,
 MTS:`<b>Salary:</b> ₹18k–25k<br><b>Pros:</b><ul><li>Low pressure</li></ul><b>Cons:</b><ul><li>Low pay</li></ul><b>Stress:</b> Low`,
+Steno:`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>Secretarial role</li><li>Office environment</li></ul><b>Cons:</b><ul><li>Typing skills needed</li></ul><b>Stress:</b> Low`,
 PO:`<b>Salary:</b> ₹50k–80k<br><b>Pros:</b><ul><li>Fast promotion</li></ul><b>Cons:</b><ul><li>Targets</li></ul><b>Stress:</b> High`,
 Clerk:`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>Fixed hours</li></ul><b>Cons:</b><ul><li>Limited growth</li></ul><b>Stress:</b> Medium`,
+SO:`<b>Salary:</b> ₹45k–65k<br><b>Pros:</b><ul><li>Specialist role</li><li>Better pay</li></ul><b>Cons:</b><ul><li>Specific qualifications needed</li></ul><b>Stress:</b> Medium`,
+Manager:`<b>Salary:</b> ₹70k–1.2L<br><b>Pros:</b><ul><li>Leadership role</li><li>High salary</li></ul><b>Cons:</b><ul><li>High targets</li></ul><b>Stress:</b> Very High`,
 NTPC:`<b>Salary:</b> ₹35k–55k<br><b>Pros:</b><ul><li>Large vacancies</li></ul><b>Cons:</b><ul><li>Transfers</li></ul><b>Stress:</b> Medium`,
 "Group D":`<b>Salary:</b> ₹22k–30k<br><b>Pros:</b><ul><li>Job security</li></ul><b>Cons:</b><ul><li>Physical work</li></ul><b>Stress:</b> Low`,
+TC:`<b>Salary:</b> ₹40k–55k<br><b>Pros:</b><ul><li>Travel benefits</li><li>Uniform allowance</li></ul><b>Cons:</b><ul><li>Irregular hours</li></ul><b>Stress:</b> Medium`,
+"Station Master":`<b>Salary:</b> ₹45k–60k<br><b>Pros:</b><ul><li>Responsible position</li><li>Respect in community</li></ul><b>Cons:</b><ul><li>24/7 shifts</li></ul><b>Stress:</b> High`,
 NDA:`<b>Salary:</b> ₹56k+<br><b>Pros:</b><ul><li>Prestige</li></ul><b>Cons:</b><ul><li>Strict life</li></ul><b>Stress:</b> High`,
 CDS:`<b>Salary:</b> ₹56k+<br><b>Pros:</b><ul><li>Officer rank</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> High`,
 Agniveer:`<b>Salary:</b> ₹30k–40k<br><b>Pros:</b><ul><li>Early entry</li></ul><b>Cons:</b><ul><li>No pension</li></ul><b>Stress:</b> High`,
+AFCAT:`<b>Salary:</b> ₹60k–80k<br><b>Pros:</b><ul><li>Air Force officer</li><li>Technical training</li></ul><b>Cons:</b><ul><li>Strict discipline</li></ul><b>Stress:</b> High`,
 TET:`<b>Salary:</b> ₹25k–40k<br><b>Pros:</b><ul><li>Work-life balance</li></ul><b>Cons:</b><ul><li>Slow promotion</li></ul><b>Stress:</b> Low`,
 TGT:`<b>Salary:</b> ₹45k–60k<br><b>Pros:</b><ul><li>Respect</li></ul><b>Cons:</b><ul><li>Transfers</li></ul><b>Stress:</b> Low`,
 PGT:`<b>Salary:</b> ₹55k–75k<br><b>Pros:</b><ul><li>Senior role</li></ul><b>Cons:</b><ul><li>Workload</li></ul><b>Stress:</b> Medium`,
+Principal:`<b>Salary:</b> ₹80k–1.2L<br><b>Pros:</b><ul><li>Leadership position</li><li>High respect</li></ul><b>Cons:</b><ul><li>Administrative burden</li></ul><b>Stress:</b> High`,
 Constable:`<b>Salary:</b> ₹25k–35k<br><b>Pros:</b><ul><li>Early entry</li></ul><b>Cons:</b><ul><li>Risk</li></ul><b>Stress:</b> High`,
 SI:`<b>Salary:</b> ₹45k–60k<br><b>Pros:</b><ul><li>Authority</li></ul><b>Cons:</b><ul><li>Pressure</li></ul><b>Stress:</b> High`,
+DSP:`<b>Salary:</b> ₹60k–80k<br><b>Pros:</b><ul><li>Higher rank</li><li>More authority</li></ul><b>Cons:</b><ul><li>Political interference</li></ul><b>Stress:</b> Very High`,
+SP:`<b>Salary:</b> ₹80k–1L+<br><b>Pros:</b><ul><li>District head</li><li>High prestige</li></ul><b>Cons:</b><ul><li>Extreme pressure</li></ul><b>Stress:</b> Very High`,
 ANM:`<b>Salary:</b> ₹18k–30k<br><b>Pros:</b><ul><li>Healthcare role</li></ul><b>Cons:</b><ul><li>Field work</li></ul><b>Stress:</b> Medium`,
 GNM:`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>High demand</li></ul><b>Cons:</b><ul><li>Long shifts</li></ul><b>Stress:</b> High`,
-Doctor:`<b>Salary:</b> ₹60k–1.5L+<br><b>Pros:</b><ul><li>High respect</li></ul><b>Cons:</b><ul><li>Long study</li></ul><b>Stress:</b> Very High`
+Doctor:`<b>Salary:</b> ₹60k–1.5L+<br><b>Pros:</b><ul><li>High respect</li></ul><b>Cons:</b><ul><li>Long study</li></ul><b>Stress:</b> Very High`,
+Pharmacist:`<b>Salary:</b> ₹35k–50k<br><b>Pros:</b><ul><li>Medical field</li><li>Fixed hours</li></ul><b>Cons:</b><ul><li>Limited growth</li></ul><b>Stress:</b> Low`,
+"Forest Guard":`<b>Salary:</b> ₹25k–35k<br><b>Pros:</b><ul><li>Nature work</li><li>Field duty</li></ul><b>Cons:</b><ul><li>Remote postings</li></ul><b>Stress:</b> Medium`,
+Forester:`<b>Salary:</b> ₹40k–55k<br><b>Pros:</b><ul><li>Supervisory role</li><li>Wildlife protection</li></ul><b>Cons:</b><ul><li>Risk from animals</li></ul><b>Stress:</b> Medium`,
+"Range Officer":`<b>Salary:</b> ₹50k–70k<br><b>Pros:</b><ul><li>Officer rank</li><li>Forest management</li></ul><b>Cons:</b><ul><li>Poaching risks</li></ul><b>Stress:</b> High`,
+Postman:`<b>Salary:</b> ₹20k–30k<br><b>Pros:</b><ul><li>Local work</li><li>Known in area</li></ul><b>Cons:</b><ul><li>Walking duty</li></ul><b>Stress:</b> Low`,
+"Postal Assistant":`<b>Salary:</b> ₹25k–35k<br><b>Pros:</b><ul><li>Office job</li><li>Secure</li></ul><b>Cons:</b><ul><li>Monotonous work</li></ul><b>Stress:</b> Low`,
+"Sorting Assistant":`<b>Salary:</b> ₹30k–40k<br><b>Pros:</b><ul><li>Systematic work</li><li>Indoor job</li></ul><b>Cons:</b><ul><li>Night shifts possible</li></ul><b>Stress:</b> Low`,
+Judge:`<b>Salary:</b> ₹1L–2.5L<br><b>Pros:</b><ul><li>Highest respect</li><li>Judicial power</li></ul><b>Cons:</b><li>Heavy workload</li><li>Public scrutiny</li></ul><b>Stress:</b> Very High`,
+"Public Prosecutor":`<b>Salary:</b> ₹70k–1.2L<br><b>Pros:</b><ul><li>Court practice</li><li>Government lawyer</li></ul><b>Cons:</b><ul><li>Case pressure</li></ul><b>Stress:</b> High`,
+"Law Clerk":`<b>Salary:</b> ₹40k–60k<br><b>Pros:</b><ul><li>Legal experience</li><li>Court exposure</li></ul><b>Cons:</b><ul><li>Temporary position</li></ul><b>Stress:</b> Medium`,
+Accountant:`<b>Salary:</b> ₹35k–50k<br><b>Pros:</b><ul><li>Financial skills</li><li>Office job</li></ul><b>Cons:</b><ul><li>Month-end pressure</li></ul><b>Stress:</b> Medium`,
+Auditor:`<b>Salary:</b> ₹45k–65k<br><b>Pros:</b><ul><li>Inspection role</li><li>Travel opportunities</li></ul><b>Cons:</b><ul><li>Seasonal workload</li></ul><b>Stress:</b> Medium`,
+"Tax Assistant":`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>Tax knowledge</li><li>Govt department</li></ul><b>Cons:</b><ul><li>Tax season pressure</li></ul><b>Stress:</b> Medium`,
+Patwari:`<b>Salary:</b> ₹25k–40k<br><b>Pros:</b><ul><li>Local authority</li><li>Land records</li></ul><b>Cons:</b><ul><li>Corruption risks</li></ul><b>Stress:</b> Medium`,
+Tehsildar:`<b>Salary:</b> ₹45k–65k<br><b>Pros:</b><ul><li>Revenue officer</li><li>Administrative power</li></ul><b>Cons:</b><ul><li>Political pressure</li></ul><b>Stress:</b> High`,
+"Revenue Inspector":`<b>Salary:</b> ₹35k–50k<br><b>Pros:</b><ul><li>Field inspections</li><li>Government surveys</li></ul><b>Cons:</b><ul><li>Travel required</li></ul><b>Stress:</b> Medium`,
+"Block Officer":`<b>Salary:</b> ₹40k–55k<br><b>Pros:</b><ul><li>Rural development</li><li>Community work</li></ul><b>Cons:</b><ul><li>Remote areas</li></ul><b>Stress:</b> Medium`,
+"Gram Sevak":`<b>Salary:</b> ₹25k–35k<br><b>Pros:</b><ul><li>Village level</li><li>Grassroots work</li></ul><b>Cons:</b><ul><li>Limited facilities</li></ul><b>Stress:</b> Low`,
+BDO:`<b>Salary:</b> ₹55k–75k<br><b>Pros:</b><ul><li>Block head</li><li>Development projects</li></ul><b>Cons:</b><ul><li>Accountability</li></ul><b>Stress:</b> High`,
+AAO:`<b>Salary:</b> ₹45k–65k<br><b>Pros:</b><ul><li>Insurance sector</li><li>Office job</li></ul><b>Cons:</b><ul><li>Claims processing</li></ul><b>Stress:</b> Medium`,
+Assistant:`<b>Salary:</b> ₹30k–45k<br><b>Pros:</b><ul><li>Entry level</li><li>Learning opportunity</li></ul><b>Cons:</b><ul><li>Limited authority</li></ul><b>Stress:</b> Low`,
+Surveyor:`<b>Salary:</b> ₹35k–55k<br><b>Pros:</b><ul><li>Technical work</li><li>Field & office mix</li></ul><b>Cons:</b><ul><li>Travel required</li></ul><b>Stress:</b> Medium`
 };
 popupBody.innerHTML=`<div class="details-box">${d[post]}</div>
 <button class="popup-btn back-btn" onclick="openCategory('${cat}')">⬅ Back</button>`;
